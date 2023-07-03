@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React from 'react';
 import {
     Box,
     Flex,
@@ -18,26 +18,12 @@ import {
     Image,
     Input,
     InputGroup,
-    InputLeftElement
+    InputLeftElement,
+    Center
 } from '@chakra-ui/react';
 import Logo from '../assets/images/logo.png'
 import { HamburgerIcon, CloseIcon, SearchIcon } from '@chakra-ui/icons';
 
-
-
-const NavLink = ({ children }: { children: ReactNode }) => (
-    <Link
-        px={2}
-        py={1}
-        rounded={'md'}
-        _hover={{
-            textDecoration: 'none',
-            bg: useColorModeValue('gray.200', 'gray.700'),
-        }}
-        href={'#'}>
-        {children}
-    </Link>
-);
 
 export default function Simple() {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -53,22 +39,16 @@ export default function Simple() {
                         display={{ md: 'none' }}
                         onClick={isOpen ? onClose : onOpen}
                     />
-                    <HStack spacing={8} alignItems={'center'}>
-                        <Image boxSize={"28"} width={"36"} src={Logo} alt="Logo" />
-                        <HStack
-                            as={'nav'}
-                            spacing={4}
-                            display={{ base: 'none', md: 'flex' }}>
-                            <InputGroup>
-                                <InputLeftElement
-                                    pointerEvents="none"
-                                    children={<SearchIcon color="gray.300" />}
-                                />
-                                <Input type="search" placeholder="Search..." />
-                            </InputGroup>
-                        </HStack>
-                    </HStack>
-                    <Flex alignItems={'center'}>
+                   <Flex justifyContent={'space-between'} w="full">
+                      <Image boxSize={"28"} width={"36"} src={Logo} alt="Logo" />
+                      <InputGroup maxW="80" alignSelf={'center'} borderRadius={"sm"} border={"grey"}>
+                        <InputLeftElement
+                            pointerEvents="none"
+                            children={<SearchIcon color="gray.300" />}
+                        />
+                        <Input type="search" placeholder="Search..." />
+                      </InputGroup>
+                      <Flex alignItems={'center'}>
                         <Menu>
                             <MenuButton
                                 as={Button}
@@ -90,6 +70,7 @@ export default function Simple() {
                                 <MenuItem>Link 3</MenuItem>
                             </MenuList>
                         </Menu>
+                      </Flex>
                     </Flex>
                 </Flex>
             </Box>
