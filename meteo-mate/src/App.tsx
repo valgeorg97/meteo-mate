@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import Navigation from '../src/components/Navigation'
-import { API_KEY } from './constants/constants';
+// import { API_KEY } from './constants/constants';
 import { ChakraProvider } from "@chakra-ui/react"
 
 
