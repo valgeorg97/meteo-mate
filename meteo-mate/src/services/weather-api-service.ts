@@ -1,11 +1,14 @@
 import axios from 'axios';
 import { API_KEY } from '../constants/constants';
 
+export const getWeatherData = async (city: string) =>{
+
+
 const options = {
   method: 'GET',
   url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
   params: {
-    q: 'London',
+    q: city,
     days: '10'
   },
   headers: {
@@ -17,6 +20,9 @@ const options = {
 try {
 	const response = await axios.request(options);
 	console.log(response.data);
+  return response.data;  
 } catch (error) {
 	console.error(error);
+  return null;
+}
 }

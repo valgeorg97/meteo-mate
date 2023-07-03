@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction, useState} from 'react';
 import {
     Box,
     Flex,
     Avatar,
-    HStack,
-    Link,
     IconButton,
     Button,
     Menu,
@@ -14,19 +12,34 @@ import {
     MenuDivider,
     useDisclosure,
     useColorModeValue,
-    Stack,
     Image,
     Input,
     InputGroup,
-    InputLeftElement,
-    Center
+    InputLeftElement
 } from '@chakra-ui/react';
 import Logo from '../assets/images/logo.png'
 import { HamburgerIcon, CloseIcon, SearchIcon } from '@chakra-ui/icons';
 
+interface NavBarProps {
+    city: string;
+    setCity: Dispatch<SetStateAction<string>>;
+  }
 
-export default function Simple() {
+export default function Simple({city, setCity}: NavBarProps) {
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const [inputValue, setInputValue] = useState(''); 
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(event.target.value);
+    }
+    
+    const handleKeyDown = (event: React.KeyboardEvent) => {
+        if (event.key === 'Enter') {
+            setCity(inputValue);
+        }
+    }
+    
 
     return (
         <>
@@ -41,12 +54,12 @@ export default function Simple() {
                     />
                    <Flex justifyContent={'space-between'} w="full">
                       <Image boxSize={"28"} width={"36"} src={Logo} alt="Logo" />
-                      <InputGroup maxW="80" alignSelf={'center'} borderRadius={"sm"} border={"grey"}>
+                      <InputGroup maxW="80" alignSelf={'center'} borderRadius={"xl"} border={"grey"}>
                         <InputLeftElement
                             pointerEvents="none"
                             children={<SearchIcon color="gray.300" />}
                         />
-                        <Input type="search" placeholder="Search..." />
+                        <Input type="search" placeholder="Search..." value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyDown}/>
                       </InputGroup>
                       <Flex alignItems={'center'}>
                         <Menu>
@@ -74,8 +87,6 @@ export default function Simple() {
                     </Flex>
                 </Flex>
             </Box>
-
-            <Box p={4}>Vidin, 32 gradusa</Box>
         </>
     );
 }
