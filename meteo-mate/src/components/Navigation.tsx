@@ -23,6 +23,7 @@ import {
 } from '@chakra-ui/react';
 import Logo from '../assets/images/logo.png'
 import { HamburgerIcon, CloseIcon, SearchIcon } from '@chakra-ui/icons';
+import LandingPage from '../views/LandingPage';
 
 
 export default function Simple() {
@@ -30,7 +31,7 @@ export default function Simple() {
 
     return (
         <>
-            <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+            <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} >
                 <Flex h={"28"} alignItems={'center'} justifyContent={'space-between'}>
                     <IconButton
                         size={'md'}
@@ -75,7 +76,7 @@ export default function Simple() {
                 </Flex>
             </Box>
 
-            <Box p={4}>Vidin, 32 gradusa</Box>
+            <Box p={4} border={"Background"}><LandingPage/></Box>
         </>
     );
 }
