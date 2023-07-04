@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-// import axios from 'axios';
 import NavBar from './components/NavBar'
+import WeatherNav from './components/WeatherNav';
+import { BrowserRouter as Router} from 'react-router-dom'; // Import Router, Switch, and Route
 
 import { ChakraProvider } from "@chakra-ui/react"
 import LandingPage from './views/LandingPage';
 import { getWeatherData } from './services/weather-api-service';
+
 
 interface WeatherData {
   location: {
@@ -13,8 +15,10 @@ interface WeatherData {
   };
   current: {
     temp_c: number;
+    feelslike_c: number;
   };
 }
+
 function App() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [city, setCity] = useState('London');
@@ -42,10 +46,14 @@ function App() {
 
   return (
     <ChakraProvider>
-      <NavBar city={city} setCity={setCity}/>
-      <LandingPage temp={weatherData?.current.temp_c} city={weatherData?.location.name}/>
+      <Router>
+        <NavBar city={city} setCity={setCity}/>
+        <LandingPage/>
+        <WeatherNav temp={weatherData?.current.temp_c} city={weatherData?.location.name} feelsLike={weatherData?.current.feelslike_c} />
+      </Router>
     </ChakraProvider>
   );
+
 }
 
 export default App;

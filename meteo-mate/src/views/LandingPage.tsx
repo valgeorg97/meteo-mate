@@ -1,24 +1,15 @@
-import { Flex } from "@chakra-ui/react";
+
+import { Box } from "@chakra-ui/react";
 import React from "react";
 
-interface LandingPageProps {
-  temp: number | undefined;
-  city: string | undefined;
-}
 
-function LandingPage ({temp, city}: LandingPageProps){
+
+function LandingPage (){
     return(
-        <Flex
-            height="700px"
-            width="800px"
-            alignItems="center"
-            justifyContent="center"
-            border="2px"
-            borderRadius={"lg"}
-        >
-            Hello! The current temperature in {city} is {temp}°C
-        </Flex>
-    );
+        <Box> 
+            Hello! Please enter the location that you want to check the weather for. Enjoy!
+        </Box>
+        );
 }
 
 export default LandingPage;
