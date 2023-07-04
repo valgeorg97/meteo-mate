@@ -19,6 +19,8 @@ import {
 } from '@chakra-ui/react';
 import Logo from '../assets/images/logo.png'
 import { HamburgerIcon, CloseIcon, SearchIcon } from '@chakra-ui/icons';
+import { useNavigate } from 'react-router-dom';
+
 
 interface NavBarProps {
     city: string;
@@ -29,6 +31,7 @@ export default function Simple({city, setCity}: NavBarProps) {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const [inputValue, setInputValue] = useState(''); 
+    const navigate = useNavigate()
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
@@ -37,6 +40,7 @@ export default function Simple({city, setCity}: NavBarProps) {
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter') {
             setCity(inputValue);
+            navigate('/current-weather')
         }
     }
     

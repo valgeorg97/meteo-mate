@@ -48,7 +48,6 @@ function App() {
     <ChakraProvider>
       <Router>
         <NavBar city={city} setCity={setCity}/>
-        <LandingPage/>
         <WeatherNav temp={weatherData?.current.temp_c} city={weatherData?.location.name} feelsLike={weatherData?.current.feelslike_c} />
       </Router>
     </ChakraProvider>

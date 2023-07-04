@@ -3,6 +3,7 @@ import { Flex, Button, Spacer } from "@chakra-ui/react";
 import { Link, Routes, Route } from 'react-router-dom'; // Import Routes and Route
 import CurrentWeather from "../views/CurrentWeather"; // Import CurrentWeather
 import Forecast10Days from "../views/Forecast10Days"; // Import Forecast10Days
+import LandingPage from "../views/LandingPage";
 
 interface WeatherNavProps {
     temp: number | undefined;
@@ -39,6 +40,7 @@ function WeatherNav ({temp, city, feelsLike}: WeatherNavProps) {
                     </Link>
                 </Flex>
                 <Routes>
+                    <Route path="/" element={<LandingPage/>}/>
                     <Route path="/current-weather" element={<CurrentWeather temp={temp} city={city} feelsLike={feelsLike} />} />
                     <Route path="/forecast-10-days" element={<Forecast10Days />} />
                 </Routes>

@@ -7,13 +7,7 @@ interface CurrentWeatherProps {
 }
 function CurrentWeather({ temp, city, feelsLike }: CurrentWeatherProps) {
     return (
-    <Flex
-        height="100vh"
-        width="100vw"
-        alignItems="center"
-        justifyContent="center"
-        mt={"-20"}
-    >
+    <Flex>
         
             <Box>Hello! The current temperature in {city} is {temp}°C</Box>
             <Box>It feels like: {feelsLike}°C</Box>

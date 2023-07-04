@@ -9,7 +9,7 @@ const options = {
   url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
   params: {
     q: city,
-    days: '10'
+    days: '5'
   },
   headers: {
     'X-RapidAPI-Key': API_KEY,
