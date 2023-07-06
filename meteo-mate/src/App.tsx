@@ -5,6 +5,7 @@ import WeatherNav from './components/WeatherNav';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ChakraProvider } from "@chakra-ui/react";
 import { getWeatherData } from './services/weather-api-service';
+import Forecast from './views/Forecast';
 
 import backgroundImage from '../src/assets/images/desktop-1920x1080.jpg';
 
@@ -18,11 +19,23 @@ interface WeatherData {
     temp_c: number;
     feelslike_c: number;
     last_updated: string;
-    
     condition: {
       text: string;
       icon: string;
     };
+  };
+  forecast: {
+    forecastday: {
+      date: string;
+      day: {
+        condition: {
+          text: string;
+          icon: string;
+        };
+        mintemp_c: number;
+        maxtemp_c: number;
+      };
+    }[];
   };
 }
 
@@ -66,7 +79,7 @@ function App() {
               last_update={weatherData?.current.last_updated}
               localtime={weatherData?.location.localtime}
               country={weatherData?.location.country}
-           
+              forecastData={weatherData?.forecast?.forecastday}
             />
           </Router>
         </ChakraProvider>

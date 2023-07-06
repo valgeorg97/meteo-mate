@@ -15,7 +15,7 @@ interface CurrentWeatherProps {
 function CurrentWeather({ temp, city, feelsLike, icon, last_update, localtime, country, weatherType}: CurrentWeatherProps) {
     return (
         <Flex direction="column" alignItems="center" justifyContent="center" ml={"10"} mt={2} color={"blackAlpha.500"} fontWeight={"medium"}>
-            <Flex>Last update: {last_update} | Local time: {localtime}</Flex>
+            <Flex alignItems={"center"} justifyContent={"center"}>Last update: {last_update} | Local time: {localtime}</Flex>
             <Flex direction="row" alignItems="center" justifyContent="space-between">
                 <Text
                     fontSize={"6xl"} 
@@ -30,7 +30,7 @@ function CurrentWeather({ temp, city, feelsLike, icon, last_update, localtime, c
             
             <Flex direction={"row"} justifyContent="center" alignItems={"center"}>
                 <Box  width="200px" height="200px" mt={0} display="flex" flexDirection="column" alignItems="center" justifyContent="center">
-                    <Text alignItems={"center"} mb={"-4"} mr={"14"} fontSize={"2xl"}>{weatherType}</Text>
+                    <Text alignItems={"center"} mb={"-4"} mr={"14"} fontSize={"3xl"} mt={"-6"}>{weatherType}</Text>
                     <Flex direction="row" alignItems="center" justifyContent={"center"} mr={20}>
                         <Image src={icon} alt="Weather condition icon" boxSize={"28"} mr={2}/>
                         <Flex direction="column" alignItems="center">
@@ -44,7 +44,7 @@ function CurrentWeather({ temp, city, feelsLike, icon, last_update, localtime, c
                             >
                                 {temp}°C
                             </Text>
-                            <Text fontSize={"sm"} mt={-2}>Feels like: {feelsLike}°C</Text>
+                            <Text fontSize={"md"} mt={-2}>Feels like: {feelsLike}°C</Text>
                         </Flex>
                     </Flex>
                 </Box>
