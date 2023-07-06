@@ -2,26 +2,33 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import NavBar from './components/NavBar'
 import WeatherNav from './components/WeatherNav';
-import { BrowserRouter as Router} from 'react-router-dom'; // Import Router, Switch, and Route
-
-import { ChakraProvider } from "@chakra-ui/react"
-import LandingPage from './views/LandingPage';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ChakraProvider } from "@chakra-ui/react";
 import { getWeatherData } from './services/weather-api-service';
 
+import backgroundImage from '../src/assets/images/desktop-1920x1080.jpg';
 
 interface WeatherData {
   location: {
     name: string;
+    localtime: string;
+    country: string;
   };
   current: {
     temp_c: number;
     feelslike_c: number;
+    last_updated: string;
+    
+    condition: {
+      text: string;
+      icon: string;
+    };
   };
 }
 
 function App() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
-  const [city, setCity] = useState('London');
+  const [city, setCity] = useState('Vidin');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -45,14 +52,27 @@ function App() {
   }
 
   return (
-    <ChakraProvider>
-      <Router>
-        <NavBar city={city} setCity={setCity}/>
-        <WeatherNav temp={weatherData?.current.temp_c} city={weatherData?.location.name} feelsLike={weatherData?.current.feelslike_c} />
-      </Router>
-    </ChakraProvider>
+    <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className="blur-container">
+        <ChakraProvider>
+          <Router>
+            <NavBar city={city} setCity={setCity} />
+            <WeatherNav
+              temp={weatherData?.current.temp_c}
+              city={weatherData?.location.name}
+              feelsLike={weatherData?.current.feelslike_c}
+              weatherType={weatherData?.current.condition.text}
+              icon={weatherData?.current.condition.icon}
+              last_update={weatherData?.current.last_updated}
+              localtime={weatherData?.location.localtime}
+              country={weatherData?.location.country}
+           
+            />
+          </Router>
+        </ChakraProvider>
+      </div>
+    </div>
   );
-
 }
 
 export default App;
