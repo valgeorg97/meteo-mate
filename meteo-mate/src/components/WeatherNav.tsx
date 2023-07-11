@@ -38,8 +38,10 @@ function WeatherNav({ temp, city, feelsLike, icon, last_update, localtime, count
       mt="-16"
     >
       <Flex
-        height="380px"
-        width="600px"
+        
+        width={"600px"}
+        minHeight={"150px"}
+        
         direction="column"
         borderRadius="xl"
         background="linear-gradient(to bottom, rgba(135, 206, 250, 0.5), rgba(255, 255, 255, 0.8))"

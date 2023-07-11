@@ -10,7 +10,7 @@ interface CurrentWeatherProps {
     localtime: string | undefined;
     country: string | undefined;
     weatherType: string | undefined;
- }
+}
 
 function CurrentWeather({ temp, city, feelsLike, icon, last_update, localtime, country, weatherType}: CurrentWeatherProps) {
     return (
@@ -19,18 +19,18 @@ function CurrentWeather({ temp, city, feelsLike, icon, last_update, localtime, c
             <Flex direction="row" alignItems="center" justifyContent="space-between">
                 <Text
                     fontSize={"6xl"} 
-                    color={"whitesmoke"}
+                    color={"blackAlpha.800"}
                     fontWeight="bold" 
-                    mt={10}
                     fontFamily={"-moz-initial"}
+                    paddingRight={"6"}
                 >
                     {city}, {country}
                 </Text>
             </Flex>
             
-            <Flex direction={"row"} justifyContent="center" alignItems={"center"}>
-                <Box  width="200px" height="200px" mt={0} display="flex" flexDirection="column" alignItems="center" justifyContent="center">
-                    <Text alignItems={"center"} mb={"-4"} mr={"14"} fontSize={"3xl"} mt={"-6"}>{weatherType}</Text>
+            <Flex direction={"row"} justifyContent="center" alignItems={"center"} mt={10}>
+                <Box  width="200px" minHeight="200px" mt={6} display="flex" flexDirection="column" alignItems="center" justifyContent="center">
+                    <Text alignItems={"center"} mb={"-4"} mr={"14"} fontSize={"3xl"} mt={"-20"}>{weatherType}</Text>
                     <Flex direction="row" alignItems="center" justifyContent={"center"} mr={20}>
                         <Image src={icon} alt="Weather condition icon" boxSize={"28"} mr={2}/>
                         <Flex direction="column" alignItems="center">
@@ -41,10 +41,11 @@ function CurrentWeather({ temp, city, feelsLike, icon, last_update, localtime, c
                                 }
                                 fontWeight="bold"
                                 ml={-4}
+                                mt={2}
                             >
-                                {temp}°C
+                                {temp?.toFixed(0)}°C
                             </Text>
-                            <Text fontSize={"md"} mt={-2}>Feels like: {feelsLike}°C</Text>
+                            <Text fontSize={"md"} mt={-2}>Feels like: {feelsLike?.toFixed(0)}°C</Text>
                         </Flex>
                     </Flex>
                 </Box>

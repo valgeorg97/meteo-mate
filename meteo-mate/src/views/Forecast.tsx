@@ -17,18 +17,17 @@ interface ForecastProps {
 
 function Forecast({ forecastData }: ForecastProps) {
   return (
-    <Flex direction="column" align="center">
-      <Text fontSize="lg" fontWeight="bold" mb={4} mt={2}>
-        Forecast:
+    <Flex direction="column" align="center" >
+      <Text fontSize="lg" fontWeight="bold" mb={4} mt={2} borderBottom={"2px"}>
+        Forecast
       </Text>
-      <Flex direction="row">
+      <Flex direction="row" >
         {forecastData.map((dayData, index) => (
-          <Flex key={index} direction="column" align="center" justify="center" mx={6}>
-            <Text>Date: {dayData.date}</Text>
-            <Text>{dayData.day.condition.text}</Text>
+          <Flex key={index} direction="column" align="center" justify="center" mx={10} >
+            <Text>{dayData.date}</Text>
             <Image src={dayData.day.condition.icon} alt="Weather Icon" boxSize={50} />
             <Text>
-              {dayData.day.mintemp_c}&deg;C | {dayData.day.maxtemp_c}&deg;C
+              {dayData.day.mintemp_c.toFixed(0)}&deg;C | {dayData.day.maxtemp_c.toFixed(0)}&deg;C
             </Text>
             <hr />
           </Flex>

@@ -1,58 +1,33 @@
-import React, { Dispatch, SetStateAction, useState} from 'react';
-import {
-    Box,
-    Flex,
-    useDisclosure,
-    Image,
-    Input,
-    InputGroup,
-    InputLeftElement
-} from '@chakra-ui/react';
-import Logo from '../assets/images/logo2.png'
-import { HamburgerIcon, CloseIcon, SearchIcon } from '@chakra-ui/icons';
+import React, { Dispatch, SetStateAction } from 'react';
+import { Box, Flex, Image } from '@chakra-ui/react';
+import Logo from '../assets/images/meteoLogo.png';
 import { useNavigate } from 'react-router-dom';
-
+import SearchBar from '../components/Searchbar';
 
 interface NavBarProps {
-    city: string;
-    setCity: Dispatch<SetStateAction<string>>;
-  }
+  city: string;
+  setCity: Dispatch<SetStateAction<string>>;
+}
 
-export default function Simple({city, setCity}: NavBarProps) {
+export default function Simple({ city, setCity }: NavBarProps) {
+  const navigate = useNavigate();
 
-    const [inputValue, setInputValue] = useState(''); 
-    const navigate = useNavigate()
+  const handleSearch = (query: string) => {
+    setCity(query);
+    navigate('/current-weather');
+  };
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue(event.target.value);
-    }
-    
-    const handleKeyDown = (event: React.KeyboardEvent) => {
-        if (event.key === 'Enter') {
-            setCity(inputValue);
-            navigate('/current-weather')
-        }
-    }
-    
-
-    return (
-        <>
-            <Box px={4}>
-                <Flex h={"28"} alignItems={'center'} justifyContent={'space-between'}>
-                   <Flex justifyContent={'space-between'} w="full">
-                      <Image boxSize={"28"} width={"44"} src={Logo} alt="Logo" />
-                      <InputGroup maxW={"96"} alignSelf={'center'} borderRadius={"xl"} border={"white"} color={"white"} maxH={"28"}>
-                        <InputLeftElement
-                            pointerEvents="none"
-                            children={<SearchIcon color="gray.300" />}
-                        />
-                        <Input type="search" placeholder="Search..." value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyDown}/>
-                      </InputGroup>
-                      <Flex alignItems={'center'}>
-                      </Flex>
-                    </Flex>
-                </Flex>
-            </Box>
-        </>
-    );
+  return (
+    <>
+      <Box px={4}>
+        <Flex h={'28'} alignItems={'center'} justifyContent={'space-between'}>
+          <Flex justifyContent={'space-between'} w="full">
+            <Image boxSize={'28'} width={"64"} src={Logo} alt="Logo" mt={-4} />
+            <SearchBar onSearch={handleSearch} />
+            <Flex alignItems={'center'}></Flex>
+          </Flex>
+        </Flex>
+      </Box>
+    </>
+  );
 }
