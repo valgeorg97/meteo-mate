@@ -18,7 +18,7 @@ interface ForecastProps {
 function Forecast({ forecastData }: ForecastProps) {
   return (
     <Flex direction="column" align="center" >
-      <Text fontSize="lg" fontWeight="bold" mb={4} mt={2} borderBottom={"2px"}>
+      <Text fontSize="lg" fontWeight="bold" mb={6} mt={2} borderBottom={"2px"}>
         Forecast
       </Text>
       <Flex direction="row" >

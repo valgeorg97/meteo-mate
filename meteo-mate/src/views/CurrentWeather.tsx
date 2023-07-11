@@ -14,7 +14,7 @@ interface CurrentWeatherProps {
 
 function CurrentWeather({ temp, city, feelsLike, icon, last_update, localtime, country, weatherType}: CurrentWeatherProps) {
     return (
-        <Flex direction="column" alignItems="center" justifyContent="center" ml={"10"} mt={2} color={"blackAlpha.500"} fontWeight={"medium"}>
+        <Flex direction="column" alignItems="center" justifyContent="center" ml={"10"} mt={2} color={"blackAlpha.500"} fontWeight={"medium"} mb={4}>
             <Flex alignItems={"center"} justifyContent={"center"}>Last update: {last_update} | Local time: {localtime}</Flex>
             <Flex direction="row" alignItems="center" justifyContent="space-between">
                 <Text

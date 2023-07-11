@@ -1,6 +1,6 @@
 import React from "react";
 import { Flex, Box } from "@chakra-ui/react";
-import { Link, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import CurrentWeather from "../views/CurrentWeather";
 import LandingPage from "../views/LandingPage";
 import Forecast from "../views/Forecast";
@@ -38,10 +38,8 @@ function WeatherNav({ temp, city, feelsLike, icon, last_update, localtime, count
       mt="-16"
     >
       <Flex
-        
         width={"600px"}
         minHeight={"150px"}
-        
         direction="column"
         borderRadius="xl"
         background="linear-gradient(to bottom, rgba(135, 206, 250, 0.5), rgba(255, 255, 255, 0.8))"

@@ -81,6 +81,7 @@ function SearchBar({ onSearch }: SearchBarProps) {
       <InputGroup maxW="lg" alignSelf="center" width="96">
         <InputLeftElement pointerEvents="none" children={<SearchIcon color="gray.300" />} />
         <Input
+        color={"white"}
           type="search"
           placeholder="Enter location..."
           value={inputValue}

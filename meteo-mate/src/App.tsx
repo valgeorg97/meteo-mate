@@ -5,7 +5,6 @@ import WeatherNav from './components/WeatherNav';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ChakraProvider } from "@chakra-ui/react";
 import { getWeatherData } from './services/weather-api-service';
-import Forecast from './views/Forecast';
 
 import backgroundImage from '../src/assets/images/desktop-1920x1080.jpg';
 
