@@ -1,6 +1,6 @@
 import React from "react";
 import { Flex, Box } from "@chakra-ui/react";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from "react-router-dom";
 import CurrentWeather from "../views/CurrentWeather";
 import LandingPage from "../views/LandingPage";
 import Forecast from "../views/Forecast";
@@ -27,7 +27,21 @@ interface WeatherNavProps {
   }>;
 }
 
-function WeatherNav({ temp, city, feelsLike, icon, last_update, localtime, country, weatherType, forecastData }: WeatherNavProps) {
+function WeatherNav({
+  temp,
+  city,
+  feelsLike,
+  icon,
+  last_update,
+  localtime,
+  country,
+  weatherType,
+  forecastData,
+}: WeatherNavProps) {
+  const location = useLocation();
+
+  const isLandingPage = location.pathname === "/";
+
   return (
     <Flex
       height="100vh"
@@ -37,33 +51,77 @@ function WeatherNav({ temp, city, feelsLike, icon, last_update, localtime, count
       direction="column"
       mt="-16"
     >
-      <Flex
-        width={"600px"}
-        minHeight={"150px"}
-        direction="column"
-        borderRadius="xl"
-        background="linear-gradient(to bottom, rgba(135, 206, 250, 0.5), rgba(255, 255, 255, 0.8))"
-        boxShadow="0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.15)"
-      >
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/current-weather" element={<CurrentWeather temp={temp} city={city} feelsLike={feelsLike} icon={icon} last_update={last_update} localtime={localtime} country={country} weatherType={weatherType} />} />
-        </Routes>
-      </Flex>
-      <Box
-        height="220px"
-        width="600px"
-        borderRadius="xl"
-        background="linear-gradient(to bottom,rgba(255, 255, 255, 0.8), rgba(135, 206, 250, 0.8) )"
-        mt="4"
-        boxShadow="0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.15)"
-      >
-        {forecastData && (
+      {isLandingPage ? (
+        <Flex
+          width={"600px"}
+          minHeight={"300px"}
+          direction="column"
+          borderRadius="xl"
+          background="linear-gradient(to bottom, rgba(135, 206, 250, 0.5), rgba(255, 255, 255, 0.8))"
+          boxShadow="0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.15)"
+          mt={"-72"}
+          p={6}
+        >
+          <LandingPage />
+        </Flex>
+      ) : (
+        <Box
+          minHeight="400px"
+          width="600px"
+          borderRadius="xl"
+          background="linear-gradient(to bottom,rgba(255, 255, 255, 0.8), rgba(135, 206, 250, 0.8) )"
+          mt="4"
+          boxShadow="0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.15)"
+          
+        >
+          <Routes>
+            <Route
+              path="/current-weather"
+              element={
+                <CurrentWeather
+                  temp={temp}
+                  city={city}
+                  feelsLike={feelsLike}
+                  icon={icon}
+                  last_update={last_update}
+                  localtime={localtime}
+                  country={country}
+                  weatherType={weatherType}
+                />
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <CurrentWeather
+                  temp={temp}
+                  city={city}
+                  feelsLike={feelsLike}
+                  icon={icon}
+                  last_update={last_update}
+                  localtime={localtime}
+                  country={country}
+                  weatherType={weatherType}
+                />
+              }
+            />
+          </Routes>
+        </Box>
+      )}
+      {!isLandingPage && forecastData && (
+        <Box
+          height="190px"
+          width="600px"
+          borderRadius="xl"
+          background="linear-gradient(to bottom,rgba(255, 255, 255, 0.8), rgba(135, 206, 250, 0.8) )"
+          mt="4"
+          boxShadow="0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.15)"
+        >
           <Forecast forecastData={forecastData} />
-        )}
-      </Box>
+        </Box>
+      )}
     </Flex>
-  )
+  );
 }
 
 export default WeatherNav;

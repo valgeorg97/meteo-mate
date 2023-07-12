@@ -31,7 +31,7 @@ function CurrentWeather({ temp, city, feelsLike, icon, last_update, localtime, c
             <Flex direction={"row"} justifyContent="center" alignItems={"center"} mt={10}>
                 <Box  width="200px" minHeight="200px" mt={6} display="flex" flexDirection="column" alignItems="center" justifyContent="center">
                     <Text alignItems={"center"} mb={"-4"} mr={"14"} fontSize={"3xl"} mt={"-20"}>{weatherType}</Text>
-                    <Flex direction="row" alignItems="center" justifyContent={"center"} mr={20}>
+                    <Flex direction="row" alignItems="center" justifyContent={"center"} mr={20} mb={"-4"}>
                         <Image src={icon} alt="Weather condition icon" boxSize={"28"} mr={2}/>
                         <Flex direction="column" alignItems="center">
                             <Text fontSize={"6xl"} 
