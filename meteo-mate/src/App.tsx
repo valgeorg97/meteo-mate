@@ -40,7 +40,7 @@ interface WeatherData {
 
 function App() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
-  const [city, setCity] = useState('Vidin');
+  const [city, setCity] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

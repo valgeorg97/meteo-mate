@@ -18,15 +18,15 @@ interface ForecastProps {
 function Forecast({ forecastData }: ForecastProps) {
   return (
     <Flex direction="column" align="center" >
-      <Text fontSize="lg" fontWeight="bold" mb={6} mt={2} borderBottom={"2px"}>
+      <Text fontSize={{base:"sm", md:"lg"}} fontWeight="bold" mb= {{ base:"1", md:"4"}} mt={{base:"0", md:"2"}} borderBottom={"2px"}>
         Forecast
       </Text>
       <Flex direction="row" >
         {forecastData.map((dayData, index) => (
           <Flex key={index} direction="column" align="center" justify="center" mx={10} >
-            <Text>{dayData.date}</Text>
+            <Text fontSize={{base:"xs", md:"md"}}>{dayData.date}</Text>
             <Image src={dayData.day.condition.icon} alt="Weather Icon" boxSize={50} />
-            <Text>
+            <Text fontSize={{base:"xs", md:"md"}} mb={2}>
               {dayData.day.mintemp_c.toFixed(0)}&deg;C | {dayData.day.maxtemp_c.toFixed(0)}&deg;C
             </Text>
             <hr />

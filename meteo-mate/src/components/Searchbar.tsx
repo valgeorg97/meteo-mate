@@ -77,11 +77,11 @@ function SearchBar({ onSearch }: SearchBarProps) {
   }, []);
 
   return (
-    <Box position="relative" ml="-60" mt="4">
-      <InputGroup maxW="lg" alignSelf="center" width="96">
+    <Box position="relative" ml={[-4, -8]} mt={4} justifyContent={"center"} alignSelf="center"> {/* Updated: Adjusted ml (margin-left) values */}
+      <InputGroup maxW="lg" alignSelf="center" width={['90%', '96']} > {/* Updated: Adjusted width values */}
         <InputLeftElement pointerEvents="none" children={<SearchIcon color="gray.300" />} />
         <Input
-        color={"white"}
+          color="white"
           type="search"
           placeholder="Enter location..."
           value={inputValue}
@@ -92,6 +92,7 @@ function SearchBar({ onSearch }: SearchBarProps) {
             outline: 'none',
             boxShadow: 'outline',
           }}
+          width={{base:"80", md: "90"}}
         />
       </InputGroup>
       {suggestions.length > 0 && (
@@ -99,14 +100,14 @@ function SearchBar({ onSearch }: SearchBarProps) {
           ref={suggestionRef}
           position="absolute"
           top="100%"
-          left="0"
-          mt="-8"
-          p="2"
+          left={[-4, 0]} 
+          mt={2} 
+          p={2}
           bg="white"
           borderRadius="md"
           boxShadow="md"
           minWidth="xs"
-          width="96"
+          width={['40%', '40%','50%']} 
         >
           {suggestions.map((suggestion, index) => (
             <Text
