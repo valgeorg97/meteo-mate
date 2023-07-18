@@ -1,6 +1,5 @@
 import { Box, Image } from "@chakra-ui/react";
-import { FiSun } from "react-icons/fi";
-import Logo from "../assets/images/meteoLogo.png";
+import Logo from "../../assets/images/meteoLogo.png";
 import React from "react";
 
 function LandingPage() {

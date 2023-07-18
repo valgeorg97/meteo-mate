@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import NavBar from './components/NavBar'
-import WeatherNav from './components/WeatherNav';
+import NavBar from './components/NavBar/NavBar'
+import WeatherNav from './components/WeatherNav/WeatherNav';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ChakraProvider } from "@chakra-ui/react";
 import { getWeatherData } from './services/weather-api-service';
@@ -38,7 +38,11 @@ interface WeatherData {
   };
 }
 
-function App() {
+/**
+ * Main application component.
+ * @returns {JSX.Element} - The rendered App component.
+ */
+function App(): JSX.Element {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [city, setCity] = useState('');
   const [isLoading, setIsLoading] = useState(true);

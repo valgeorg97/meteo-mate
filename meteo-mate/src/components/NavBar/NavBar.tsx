@@ -1,18 +1,31 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { Box, Flex, Image } from '@chakra-ui/react';
-import Logo from '../assets/images/meteoLogo.png';
+import Logo from '../../assets/images/meteoLogo.png';
 import { useNavigate } from 'react-router-dom';
-import SearchBar from '../components/Searchbar';
+import SearchBar from '../SearchBar/Searchbar';
 
+/**
+ * Props for the NavBar component.
+ */
 interface NavBarProps {
   city: string;
   setCity: Dispatch<SetStateAction<string>>;
 }
 
-export default function Simple({ city, setCity }: NavBarProps) {
+/**
+ * Simple navigation bar component.
+ * @param {NavBarProps} props - The props for the NavBar component.
+ * @returns {JSX.Element} - The rendered NavBar component.
+ */
+export default function Simple({ setCity }: NavBarProps): JSX.Element {
   const navigate = useNavigate();
 
-  const handleSearch = (query: string) => {
+  /**
+   * Handles the search action.
+   * @param {string} query - The search query.
+   * @returns {void}
+   */
+  const handleSearch = (query: string): void => {
     setCity(query);
     navigate('/current-weather');
   };

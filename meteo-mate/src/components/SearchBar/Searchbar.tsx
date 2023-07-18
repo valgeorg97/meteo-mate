@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Input, InputGroup, InputLeftElement, Box, Text } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
-import { getWeatherData } from '../services/weather-api-service';
+import { getWeatherData } from '../../services/weather-api-service';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -12,7 +12,12 @@ interface Suggestion {
   country: string;
 }
 
-function SearchBar({ onSearch }: SearchBarProps) {
+/**
+ * Search bar component.
+ * @param {SearchBarProps} props - The props for the SearchBar component.
+ * @returns {JSX.Element} - The rendered SearchBar component.
+ */
+function SearchBar({ onSearch }: SearchBarProps): JSX.Element {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const suggestionRef = useRef<HTMLDivElement>(null);
@@ -45,17 +50,32 @@ function SearchBar({ onSearch }: SearchBarProps) {
     fetchSuggestions();
   }, [inputValue]);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  /**
+   * Handles the input change event.
+   * @param {React.ChangeEvent<HTMLInputElement>} event - The input change event.
+   * @returns {void}
+   */
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setInputValue(event.target.value);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
+  /**
+   * Handles the keydown event.
+   * @param {React.KeyboardEvent} event - The keydown event.
+   * @returns {void}
+   */
+  const handleKeyDown = (event: React.KeyboardEvent): void => {
     if (event.key === 'Enter') {
       onSearch(inputValue);
     }
   };
 
-  const handleSuggestionClick = (suggestion: Suggestion) => {
+  /**
+   * Handles the click event for a suggestion.
+   * @param {Suggestion} suggestion - The selected suggestion.
+   * @returns {void}
+   */
+  const handleSuggestionClick = (suggestion: Suggestion): void => {
     const { name, country } = suggestion;
     const query = `${name}, ${country}`;
     setInputValue(query);
@@ -77,8 +97,8 @@ function SearchBar({ onSearch }: SearchBarProps) {
   }, []);
 
   return (
-    <Box position="relative" ml={[-4, -8]} mt={4} justifyContent={"center"} alignSelf="center"> {/* Updated: Adjusted ml (margin-left) values */}
-      <InputGroup maxW="lg" alignSelf="center" width={['90%', '96']} > {/* Updated: Adjusted width values */}
+    <Box position="relative" ml={[-4, -8]} mt={4} justifyContent="center" alignSelf="center">
+      <InputGroup maxW="lg" alignSelf="center" width={['90%', '96']}>
         <InputLeftElement pointerEvents="none" children={<SearchIcon color="gray.300" />} />
         <Input
           color="white"
@@ -92,7 +112,7 @@ function SearchBar({ onSearch }: SearchBarProps) {
             outline: 'none',
             boxShadow: 'outline',
           }}
-          width={{base:"80", md: "90"}}
+          width={{ base: '80', md: '90' }}
         />
       </InputGroup>
       {suggestions.length > 0 && (
@@ -100,14 +120,14 @@ function SearchBar({ onSearch }: SearchBarProps) {
           ref={suggestionRef}
           position="absolute"
           top="100%"
-          left={[-4, 0]} 
-          mt={2} 
+          left={[-4, 0]}
+          mt={2}
           p={2}
           bg="white"
           borderRadius="md"
           boxShadow="md"
           minWidth="xs"
-          width={['40%', '40%','50%']} 
+          width={['40%', '40%', '50%']}
         >
           {suggestions.map((suggestion, index) => (
             <Text
