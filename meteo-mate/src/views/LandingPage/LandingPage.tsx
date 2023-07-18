@@ -21,7 +21,7 @@ function LandingPage() {
       <Box
         fontWeight="bold"
         fontSize="2xl"
-        mb={6} // Add margin bottom
+        mb={6} 
         mt={"-4"}
       >
         Welcome to MeteoMate!
