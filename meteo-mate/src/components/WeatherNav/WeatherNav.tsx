@@ -57,12 +57,12 @@ function WeatherNav({
       alignItems="center"
       justifyContent="center"
       direction="column"
-      mt="20px"
+      mt={{base: "0px", md:"20px"}}
     >
       {isLandingPage ? (
         <Flex
           width={{ base: "90%", md: "600px" }}
-          minHeight={"300px"}
+          minHeight={{base: "150", md: "300px"}}
           direction="column"
           borderRadius="xl"
           background="linear-gradient(to bottom, rgba(135, 206, 250, 0.5), rgba(255, 255, 255, 0.8))"

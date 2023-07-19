@@ -39,11 +39,11 @@ export default function Simple({ setCity }: NavBarProps): JSX.Element {
         flexDirection={{ base: 'column', sm: 'row' }}
       >
         <Image
-          boxSize={{ base: '32', sm: '32' }}
-          width={{ base: '32', sm: '48' }}
+          boxSize={{ base: '24', sm: '32' }}
+          width={{ base: '34', sm: '48' }}
           src={Logo}
           alt="Logo"
-          mt={{ base: '-10', sm: '-6' }}
+          mt={{ base: '-8', sm: '-6' }}
         />
         <Box flex="1" display="flex" justifyContent="center" mr={{base:"-10", md:"20"}} mt={{base:"-12", md: "0"}}>
           <SearchBar onSearch={handleSearch} />

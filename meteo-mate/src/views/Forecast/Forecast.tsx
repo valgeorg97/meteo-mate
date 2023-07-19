@@ -25,7 +25,7 @@ function Forecast({ forecastData }: ForecastProps) {
         {forecastData.map((dayData, index) => (
           <Flex key={index} direction="column" align="center" justify="center" mx={10} >
             <Text fontSize={{base:"xs", md:"md"}}>{dayData.date}</Text>
-            <Image src={dayData.day.condition.icon} alt="Weather Icon" boxSize={50} />
+            <Image src={dayData.day.condition.icon} alt="Weather Icon" boxSize={{base: "12", md: "50"}} />
             <Text fontSize={{base:"xs", md:"md"}} mb={2}>
               {dayData.day.mintemp_c.toFixed(0)}&deg;C | {dayData.day.maxtemp_c.toFixed(0)}&deg;C
             </Text>
