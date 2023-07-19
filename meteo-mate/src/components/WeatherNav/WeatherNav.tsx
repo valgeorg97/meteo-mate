@@ -57,7 +57,7 @@ function WeatherNav({
       alignItems="center"
       justifyContent="center"
       direction="column"
-      mt="-16"
+      mt="20px"
     >
       {isLandingPage ? (
         <Flex
@@ -67,7 +67,7 @@ function WeatherNav({
           borderRadius="xl"
           background="linear-gradient(to bottom, rgba(135, 206, 250, 0.5), rgba(255, 255, 255, 0.8))"
           boxShadow="0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.15)"
-          mt={{ base: "-24", md: "44" }}
+          mt={{ base: "-32", md: "44" }}
           p={6}
         >
           <LandingPage />
@@ -117,7 +117,7 @@ function WeatherNav({
       )}
       {!isLandingPage && forecastData && (
         <Box
-          minHeight={{ base: "80px", md: "120px" }}
+          minHeight={{ base: "60px", md: "120px" }}
           width={{ base: "90%", md: "600px" }}
           borderRadius="xl"
           background="linear-gradient(to bottom,rgba(255, 255, 255, 0.8), rgba(135, 206, 250, 0.8) )"

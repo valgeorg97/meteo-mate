@@ -31,7 +31,7 @@ export default function Simple({ setCity }: NavBarProps): JSX.Element {
   };
 
   return (
-    <Box px={4} py={4} mb={"-24"}>
+    <Box px={4} py={4} mb={{base:"-36", md:"-24"}}>
       <Flex
         h={{ base: '32', sm: '28' }}
         alignItems={{ base: 'center', sm: 'flex-start' }}
@@ -43,9 +43,9 @@ export default function Simple({ setCity }: NavBarProps): JSX.Element {
           width={{ base: '32', sm: '48' }}
           src={Logo}
           alt="Logo"
-          mt={{ base: '0', sm: '-6' }}
+          mt={{ base: '-10', sm: '-6' }}
         />
-        <Box flex="1" display="flex" justifyContent="center" mr={{base:"-10", md:"20"}}>
+        <Box flex="1" display="flex" justifyContent="center" mr={{base:"-10", md:"20"}} mt={{base:"-12", md: "0"}}>
           <SearchBar onSearch={handleSearch} />
         </Box>
       </Flex>
