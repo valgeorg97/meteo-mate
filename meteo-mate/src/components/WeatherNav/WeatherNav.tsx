@@ -67,18 +67,18 @@ function WeatherNav({
           borderRadius="xl"
           background="linear-gradient(to bottom, rgba(135, 206, 250, 0.5), rgba(255, 255, 255, 0.8))"
           boxShadow="0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.15)"
-          mt={{ base: "-32", md: "44" }}
+          mt={{ base: "-20", md: "44" }}
           p={6}
         >
           <LandingPage />
         </Flex>
       ) : (
         <Box
-          minHeight={{ base: "auto", md: "400px" }}
+          minHeight={{ base: "auto", md: "200px" }}
           width={{ base: "90%", md: "600px" }}
           borderRadius="xl"
           background="linear-gradient(to bottom,rgba(255, 255, 255, 0.8), rgba(135, 206, 250, 0.8) )"
-          mt={{ base: "10", md: "32" }}
+          mt={{ base: "10", md: "20" }}
           boxShadow="0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.15)"
         >
           <Routes>
