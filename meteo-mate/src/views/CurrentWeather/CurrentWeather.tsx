@@ -36,7 +36,7 @@ function CurrentWeather({
       <Flex
         alignItems={"center"}
         justifyContent={"center"}
-        fontSize={{ base: "2xs", md: "md" }}
+        fontSize={{ base: "2xs", md: "sm" }}
         textAlign="center"
         mb={2}
       >
@@ -49,7 +49,7 @@ function CurrentWeather({
         textAlign={{ base: "center", sm: "left" }}
       >
         <Text
-          fontSize={{ base: "xl", sm: "6xl" }}
+          fontSize={{ base: "xl", sm: "4xl" }}
           color={"blackAlpha.800"}
           fontWeight="bold"
           fontFamily={"-moz-initial"}
@@ -72,7 +72,7 @@ function CurrentWeather({
         >
           <Text
             mb={{base:"-4", md: "4"}}
-            fontSize={{ base: "md", sm: "3xl" }}
+            fontSize={{ base: "md", sm: "2xl" }}
             mt={{ base: 0, sm: "-20" }}
             textAlign={{ base: "center", sm: "left" }}
           >
@@ -82,7 +82,7 @@ function CurrentWeather({
             <Image src={icon} alt="Weather condition icon" boxSize={{base:"20", md:"28"}} mr={2} />
             <Flex direction="column" alignItems={{ base: "center", sm: "flex-start" }}>
               <Text
-                fontSize={{ base: "3xl", sm: "6xl" }}
+                fontSize={{ base: "3xl", sm: "5xl" }}
                 color={"white"}
                 textShadow={
                   "2px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
@@ -92,7 +92,7 @@ function CurrentWeather({
               >
                 {temp?.toFixed(0)}°C
               </Text>
-              <Text fontSize={{ base: "2xs", sm: "md" }} mt={-2}>
+              <Text fontSize={{ base: "2xs", sm: "sm" }} mt={-2}>
                 Feels like: {feelsLike?.toFixed(0)}°C
               </Text>
             </Flex>

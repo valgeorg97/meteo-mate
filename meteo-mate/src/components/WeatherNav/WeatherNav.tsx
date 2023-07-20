@@ -52,12 +52,13 @@ function WeatherNav({
 
   return (
     <Flex
-      minHeight={{ base: "100vh", sm: "auto" }}
+    minHeight={{ base: "100vh", sm: "auto" }}
       width="100vw"
       alignItems="center"
       justifyContent="center"
       direction="column"
-      mt={{base: "0px", md:"20px"}}
+      mt={{ base: "0px", md: "20px" }}
+  
     >
       {isLandingPage ? (
         <Flex

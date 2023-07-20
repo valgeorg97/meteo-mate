@@ -71,9 +71,9 @@ function App(): JSX.Element {
     return <div>Loading...</div>;
   }
 
-   return (
+  return (
     <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <div className="blur-container">
+      <div className="blur-container" style={{ minHeight: '100vh', overflowY: 'auto' }}>
         <ChakraProvider>
           <NavBar city={city} setCity={setCity} />
           <WeatherNav
@@ -91,7 +91,6 @@ function App(): JSX.Element {
       </div>
     </div>
   );
-
 }
 
 export default App;
