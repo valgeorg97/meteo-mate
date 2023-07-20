@@ -25,8 +25,9 @@ To run the MeteoMate Weather App locally, follow these steps:
 2. Press Enter or click the search button to retrieve the weather data for the specified location.
 3. The app will display the current temperature, feels-like temperature, weather conditions, and 3-day weather forecast for the location.
 4. You can search for different locations, and the weather information will update accordingly.
+5. The app is available at https://meteomate-weather-app.vercel.app/
 
-![MeteoMate Weather App Screenshot](/meteo-mate/src/assets/images/MeteoMate.png)
+![MeteoMate Weather App Screenshot](/meteo-mate/src/assets/images/MeteoMate.PNG)
 
 This screenshot shows an example of the MeteoMate Weather App interface with weather information displayed for a specific location.
 
