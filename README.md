@@ -26,7 +26,7 @@ To run the MeteoMate Weather App locally, follow these steps:
 3. The app will display the current temperature, feels-like temperature, weather conditions, and 3-day weather forecast for the location.
 4. You can search for different locations, and the weather information will update accordingly.
 
-![MeteoMate Weather App Screenshot](../meteomate-weather-app/meteo-mate/src/assets/images/MeteoMate.png)
+![MeteoMate Weather App Screenshot](/meteo-mate/src/assets/images/MeteoMate.png)
 
 This screenshot shows an example of the MeteoMate Weather App interface with weather information displayed for a specific location.
 
