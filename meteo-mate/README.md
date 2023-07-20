@@ -5,7 +5,7 @@ MeteoMate is a weather application that allows you to search for a specific loca
 ## Features
 
 - Search for a location and retrieve weather data
-- Display current temperature, feels-like temperature, and weather conditions
+- Display current temperature, feels-like temperature, weather conditions, and 3-day weather forecast for the location
 - User-friendly interface for easy navigation
 - Responsive design for optimal viewing on different devices, including mobile phones
 
